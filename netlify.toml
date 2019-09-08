@@ -3,6 +3,7 @@
   command = "hugo --gc --minify"
   functions = "functions"
   publish = "public"
+	HUGO_VERSION = "0.58.0"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app. 
   ## Not needed for static site generators.
@@ -21,7 +22,7 @@
   ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/ 
 
 [context.production.environment]
-HUGO_VERSION = "0.57.2"
+HUGO_VERSION = "0.58.0"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
@@ -29,20 +30,20 @@ HUGO_ENABLEGITINFO = "true"
 command = "hugo --gc --minify --enableGitInfo"
 
 [context.split1.environment]
-HUGO_VERSION = "0.57.2"
+HUGO_VERSION = "0.58.0"
 HUGO_ENV = "production"
 
 [context.deploy-preview]
 command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
-HUGO_VERSION = "0.57.2"
+HUGO_VERSION = "0.58.0"
 
 [context.branch-deploy]
 command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy.environment]
-HUGO_VERSION = "ç"
+HUGO_VERSION = "0.58.0"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
