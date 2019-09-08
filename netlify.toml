@@ -1,0 +1,49 @@
+# example netlify.toml
+[build]
+  command = "hugo --gc --minify"
+  functions = "functions"
+  publish = "public"
+
+  ## Uncomment to use this redirect for Single Page Applications like create-react-app. 
+  ## Not needed for static site generators.
+  #[[redirects]]
+  #  from = "/*"
+  #  to = "/index.html"
+  #  status = 200
+  
+  ## (optional) Settings for Netlify Dev
+  ## https://github.com/netlify/netlify-dev-plugin#project-detection
+  #[dev] 
+  #  command = "yarn start" # Command to start your dev server
+  #  port = 3000 # Port that the dev server will be listening on
+  #  publish = "dist" # Folder with the static content for _redirect file
+  
+  ## more info on configuring this file: https://www.netlify.com/docs/netlify-toml-reference/ 
+
+[context.production.environment]
+HUGO_VERSION = "0.57.2"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+
+[context.split1]
+command = "hugo --gc --minify --enableGitInfo"
+
+[context.split1.environment]
+HUGO_VERSION = "0.57.2"
+HUGO_ENV = "production"
+
+[context.deploy-preview]
+command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+
+[context.deploy-preview.environment]
+HUGO_VERSION = "0.57.2"
+
+[context.branch-deploy]
+command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy.environment]
+HUGO_VERSION = "ç"
+
+[context.next.environment]
+HUGO_ENABLEGITINFO = "true"
+
